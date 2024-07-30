@@ -8,42 +8,44 @@ import states from "@/statesndist";
 
 const Dashboard = () => {
   const { data: session } = useSession();
-  const [userData, setUserData] = useState({});
+  if (session) {
+    const [userData, setUserData] = useState({});
 
-  const defaultValues = userData
-    ? {
-        name: userData.name || "",
-        email: userData.email || session.user.email,
-        state: userData.state || "",
-        district: userData.district || "",
-        address: userData.address || "",
-        pincode: userData.pincode || "",
+    const defaultValues = userData
+      ? {
+          name: userData.name || "",
+          email: userData.email || session.user.email,
+          state: userData.state || "",
+          district: userData.district || "",
+          address: userData.address || "",
+          pincode: userData.pincode || "",
+        }
+      : {
+          name: "",
+          email: "",
+          state: "",
+          district: "",
+          address: "",
+          pincode: "",
+        };
+
+    const { register, handleSubmit, watch, setValue } = useForm({
+      defaultValues,
+    });
+
+    const selectedState = watch("state");
+
+    useEffect(() => {
+      if (selectedState) {
+        setValue("district", "");
       }
-    : {
-        name: "",
-        email: "",
-        state: "",
-        district: "",
-        address: "",
-        pincode: "",
-      };
+    }, [selectedState, setValue]);
 
-  const { register, handleSubmit, watch, setValue } = useForm({
-    defaultValues,
-  });
-
-  const selectedState = watch("state");
-
-  useEffect(() => {
-    if (selectedState) {
-      setValue("district", "");
-    }
-  }, [selectedState, setValue]);
-
-  const onSubmit = (data) => {
-    console.log("User Data Submitted:", data);
-    setUserData(data);
-  };
+    const onSubmit = (data) => {
+      console.log("User Data Submitted:", data);
+      setUserData(data);
+    };
+  }
 
   if (session) {
     return (
