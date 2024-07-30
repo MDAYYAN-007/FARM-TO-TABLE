@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 .mt-26{
   margin-top: 99px;
 }
@@ -60,9 +58,7 @@ background-color: rgb(0, 245, 0);
 
 .min-h-80vh{
   height: 80vh;
-=======
-=======
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
+}
 .bg-green-550 {
   background-color: rgb(0, 255, 0);
 }
@@ -101,28 +97,14 @@ background-color: rgb(0, 245, 0);
 
 .hover\:bg-green-550:hover {
   background-color: rgb(0, 255, 0); /* Adjust to the desired green */
-<<<<<<< HEAD
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
 }
 
 .min-h-84vh {
   height: 84vh;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 .min-h-85vh{
   height:85vh;
-=======
-.min-h-78vh{
-  height: 78vh;
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
-.min-h-78vh{
-  height: 78vh;
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
 }
 
 .focus\:border-green-550:focus {

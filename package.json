@@ -15,23 +15,12 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@vercel/postgres": "^0.9.0",
     "axios": "^1.7.2",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "bcrypt": "^5.1.1",
     "next": "14.2.5",
     "next-auth": "^4.24.7",
     "pg": "^8.12.0",
-=======
-    "next": "14.2.5",
-    "next-auth": "^4.24.7",
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
-    "next": "14.2.5",
-    "next-auth": "^4.24.7",
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
     "react": "^18",
     "react-dom": "^18",
-    "react-form-hook": "^0.0.1",
     "react-hook-form": "^7.52.1"
   },
   "devDependencies": {

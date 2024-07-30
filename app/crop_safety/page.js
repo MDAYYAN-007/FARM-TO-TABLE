@@ -44,15 +44,7 @@ const CropSafety = () => {
   return (
     <>
       <div
-<<<<<<< HEAD
-<<<<<<< HEAD
         className="w-full min-h-80vh flex gap-10 justify-center items-center "
-=======
-        className="w-full min-h-78vh flex gap-10 justify-center items-center "
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
-        className="w-full min-h-78vh flex gap-10 justify-center items-center "
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
         style={{
           backgroundImage: "url('/images/weather_bg.jpg')",
           backgroundSize: "cover",

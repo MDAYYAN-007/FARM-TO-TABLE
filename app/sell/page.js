@@ -11,13 +11,7 @@ const Sell = () => {
       state: "",
       district: "",
       price: "",
-<<<<<<< HEAD
-<<<<<<< HEAD
       availableUnits: 1,
-=======
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
       description: "",
       address: "",
     },
@@ -113,8 +107,6 @@ const Sell = () => {
             </div>
             <div>
               <label
-<<<<<<< HEAD
-<<<<<<< HEAD
                 htmlFor="availableUnits"
                 className="block text-md font-semibold text-black"
               >
@@ -133,10 +125,6 @@ const Sell = () => {
 
             <div>
               <label
-=======
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
                 htmlFor="description"
                 className="block text-md font-semibold text-black"
               >
@@ -218,18 +206,8 @@ const Sell = () => {
             <div>
               <button
                 type="submit"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 // className="bg-green-550 text-white font-bold py-2 px-4 rounded hover:bg-green-555 focus:outline-none focus:ring-2 focus:ring-green-550 focus:ring-opacity-50"
                 className="sell-btn text-white font-bold py-2 px-4 rounded">
-=======
-                className="bg-green-550 text-white font-bold py-2 px-4 rounded hover:bg-green-555 focus:outline-none focus:ring-2 focus:ring-green-550 focus:ring-opacity-50"
-              >
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
-                className="bg-green-550 text-white font-bold py-2 px-4 rounded hover:bg-green-555 focus:outline-none focus:ring-2 focus:ring-green-550 focus:ring-opacity-50"
-              >
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
                 Submit
               </button>
             </div>

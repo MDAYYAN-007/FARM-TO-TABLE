@@ -3,15 +3,7 @@ import React from 'react';
 const About = () => {
   return (
     <div
-<<<<<<< HEAD
-<<<<<<< HEAD
       className="min-h-80vh flex items-center justify-center"
-=======
-      className="h-screen flex items-center justify-center"
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
-=======
-      className="h-screen flex items-center justify-center"
->>>>>>> 8c2da94b5f04acc7ad1f4f34a741f9498c551235
       style={{
         backgroundImage: "url('/images/about_bg.jpg')",
         backgroundSize: "cover",
