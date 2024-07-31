@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
   return (
     <div
-      className="min-h-80vh flex items-center justify-center"
+      className="min-h-75vh flex items-center justify-center py-8"
       style={{
         backgroundImage: "url('/images/about_bg.jpg')",
         backgroundSize: "cover",

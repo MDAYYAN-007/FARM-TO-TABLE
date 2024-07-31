@@ -6,6 +6,22 @@
   margin-top: 99px;
 }
 
+.min-h-75vh{
+  min-height: 75vh;
+}
+
+.min-h-80vh{
+  min-height: 80vh;
+}
+
+.min-h-84vh {
+  min-height: 84vh;
+}
+
+.min-h-85vh{
+  min-height:85vh;
+}
+
 nav,thead tr{
   background: linear-gradient(135deg, rgb(0,255,0,0.7), rgb(128, 255, 0,0.7), rgb(255,255,0,0.7));
   /* background: linear-gradient(45deg, rgba(0,255,0,0.7), rgba(0,128,0,0.7)); */
@@ -56,9 +72,6 @@ background-color: rgb(0, 245, 0);
   color: black;
 }
 
-.min-h-80vh{
-  height: 80vh;
-}
 .bg-green-550 {
   background-color: rgb(0, 255, 0);
 }
@@ -99,20 +112,12 @@ background-color: rgb(0, 245, 0);
   background-color: rgb(0, 255, 0); /* Adjust to the desired green */
 }
 
-.min-h-84vh {
-  height: 84vh;
-}
-
-.min-h-85vh{
-  height:85vh;
-}
-
 .focus\:border-green-550:focus {
     border-color: rgb(0, 255, 0);
-  }
+}
   
 
 .focus\:ring-green-550:focus {
     --tw-ring-color: rgba(0, 255, 0); /* This is the rgba value for green-400 with 50% opacity */
     box-shadow: 0 0 0 3px var(--tw-ring-color);
-  }
+}

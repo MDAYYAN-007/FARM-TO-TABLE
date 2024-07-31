@@ -14,7 +14,7 @@ const Info = () => {
   }, []);
 
   return (
-    <div className=" mx-auto py-8 flex ">
+    <div className="min-h-75vh mx-auto py-8 flex ">
       {/* Sidebar */}
       <div className="w-1/5 bg-white shadow-md rounded-lg p-4 mr-8 fixed top-32 ml-4">
         <h2 className="text-xl font-semibold mb-4">Agenda</h2>

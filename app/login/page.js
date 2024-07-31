@@ -7,7 +7,7 @@ export default function Component() {
   if (session) {
     return (
       <>
-        <div className="min-h-80vh flex flex-col justify-center items-center space-y-4">
+        <div className="min-h-75vh flex flex-col justify-center items-center space-y-4">
           <div className="text-xl font-semibold">
             Signed in as {session.user.email}
           </div>
@@ -45,7 +45,7 @@ export default function Component() {
 
   return (
     <>
-      <div className="min-h-80vh flex justify-center items-center">
+      <div className="min-h-75vh flex justify-center items-center">
         <button className="flex items-center text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-lg font-medium dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={() => signIn("google")}>
           <img
             src="/images/googleicon.png"

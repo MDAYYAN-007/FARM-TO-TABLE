@@ -1,27 +1,48 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useSession } from "next-auth/react";
 import states from "@/statesndist";
+import getUserProfile from "@/actions/getUserProfile";
+import storeUserProfile from "@/actions/storeUserProfile";
 
 const Dashboard = () => {
   const { data: session } = useSession();
-
   const [userData, setUserData] = useState({});
-  const { register, handleSubmit, watch, setValue } = useForm({
+
+  const { register, handleSubmit, watch, setValue, reset } = useForm({
     defaultValues: {
-      name: userData.name || "",
-      email: userData.email || session?.user?.email || "",
-      state: userData.state || "",
-      district: userData.district || "",
-      address: userData.address || "",
-      pincode: userData.pincode || "",
+      name: "",
+      email: "",
+      state: "",
+      district: "",
+      address: "",
+      pincode: "",
     },
   });
 
   const selectedState = watch("state");
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (session) {
+        const data = await getUserProfile(session.user.email);
+        console.log(data);
+        setUserData(data);
+        reset({
+          name: data.name || session.user.name || "",
+          email: session.user.email,
+          state: data.state || "",
+          district: data.district || "",
+          address: data.address || "",
+          pincode: data.pincode || "",
+        });
+      }
+    };
+
+    fetchUserProfile();
+  }, [session, reset]);
 
   useEffect(() => {
     if (selectedState) {
@@ -29,9 +50,9 @@ const Dashboard = () => {
     }
   }, [selectedState, setValue]);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("User Data Submitted:", data);
-    setUserData(data);
+    await storeUserProfile(data);
   };
 
   if (session) {
@@ -126,12 +147,17 @@ const Dashboard = () => {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600"
             ></textarea>
           </div>
-          <div>
+          <div className="flex justify-between">
             <button
               type="submit"
-              className="bg-green-550 text-white font-bold py-2 px-4 rounded hover:bg-green-555 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
+              className="dash-btn text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
             >
               Save Changes
+            </button>
+            <button type="button" className="text-white font-bold py-2 px-4 rounded bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+              <Link href="/" >
+                Back to Home
+              </Link>
             </button>
           </div>
         </form>

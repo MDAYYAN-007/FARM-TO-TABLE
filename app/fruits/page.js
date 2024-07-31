@@ -57,7 +57,7 @@ const FruitList = () => {
   };
 
   return (
-    <div className="mx-auto my-10">
+    <div className="min-h-75vh mx-auto py-8">
       <h1 className="text-3xl font-bold text-center">Fresh Vegetables</h1>
       <p className="text-gray-700 mb-6 text-center">
         Discover a variety of fresh, organic fruits from local farmers. Enjoy healthy and delicious options for every meal.

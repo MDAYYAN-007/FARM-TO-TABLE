@@ -57,7 +57,7 @@ const GrainList = () => {
   };
 
   return (
-    <div className="mx-auto my-10">
+    <div className="min-h-75vh mx-auto py-8">
       <h1 className="text-3xl font-bold text-center">Fresh Grains</h1>
       <p className="text-gray-700 mb-6 text-center">
         Discover a variety of fresh, organic grains from local farmers. Enjoy healthy and nutritious options for every meal.

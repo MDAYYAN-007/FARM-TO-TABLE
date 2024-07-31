@@ -1,8 +1,10 @@
+"use server";
 import { sql } from '@vercel/postgres';
 
 const storeUserProfile = async (data) => {
   try {
     // Ensure the profile table exists
+
     await sql`
       CREATE TABLE IF NOT EXISTS farmtotable_profile (
         user_id INT NOT NULL,
@@ -17,6 +19,10 @@ const storeUserProfile = async (data) => {
       )
     `;
 
+    // Check if the user ID exists for the given email
+    const userResult = await sql`SELECT id FROM farmtotable_users WHERE email = ${data.email}`;
+    const userId = userResult.rows[0].id;
+
     // Check if profile already exists for the user
     const result = await sql`SELECT * FROM farmtotable_profile WHERE user_email = ${data.email}`;
 
@@ -28,13 +34,21 @@ const storeUserProfile = async (data) => {
         WHERE user_email = ${data.email}
       `;
     } else {
+  
       // Insert new profile
-      const user = await getEmailId(data.email);
       await sql`
         INSERT INTO farmtotable_profile (user_id, user_email, name, state, district, pincode, address)
-        VALUES (${user.id}, ${data.email}, ${data.name}, ${data.state}, ${data.district}, ${data.pincode}, ${data.address})
+        VALUES (${userId}, ${data.email}, ${data.name}, ${data.state}, ${data.district}, ${data.pincode}, ${data.address})
       `;
     }
+
+    // Update is_profile_complete flag
+    await sql`
+      UPDATE farmtotable_users
+      SET is_profile_complete = ${true}
+      WHERE email = ${data.email}
+    `;
+
   } catch (error) {
     console.error('Error storing user profile:', error);
   }

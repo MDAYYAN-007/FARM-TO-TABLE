@@ -10,7 +10,7 @@ export default function Home() {
           backgroundPosition: "center",
         }}
       >
-        <div className="text-center flex justify-center items-center min-w-screen h-full">
+        <div className="text-center min-h-84vh flex justify-center items-center min-w-screen h-full">
           <div className="bg-black bg-opacity-30 p-10 rounded-lg inline-block w-5/6">
             <h1 className="text-4xl font-bold text-white mb-4">
               Welcome to FarmToTable

@@ -9,31 +9,13 @@ const orders = [
     price: 20,
     quantity: 2,
     image: 'https://via.placeholder.com/150'
-  },
-  {
-    id: 2,
-    product_name: 'Cabbage',
-    state: 'Maharashtra',
-    district: 'Pune',
-    price: 30,
-    quantity: 1,
-    image: 'https://via.placeholder.com/150'
-  },
-  {
-    id: 3,
-    product_name: 'Carrot',
-    state: 'Tamil Nadu',
-    district: 'Chennai',
-    price: 15,
-    quantity: 5,
-    image: 'https://via.placeholder.com/150'
-  },
+  }
 ];
 
 const OrdersPage = () => {
   return (
-    <div className="container mx-auto mt-10">
-      <h1 className="text-3xl font-bold text-center mb-8">Orders</h1>
+    <div className="min-h-75vh mx-auto p-1">
+      <h1 className="text-3xl font-bold text-center my-8">Orders</h1>
       <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
         <thead>
           <tr className="bg-gray-100 text-white">

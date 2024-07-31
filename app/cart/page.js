@@ -20,7 +20,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="min-h-75vh mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-8">Shopping Cart</h1>
 
       <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
