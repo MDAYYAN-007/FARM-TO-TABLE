@@ -4,22 +4,21 @@ import { sql } from '@vercel/postgres';
 const storeUserProfile = async (data) => {
   try {
     // Ensure the profile table exists
-
     await sql`
       CREATE TABLE IF NOT EXISTS farmtotable_profile (
+        id SERIAL PRIMARY KEY,
         user_id INT NOT NULL,
         user_email VARCHAR(255) UNIQUE NOT NULL,
         name VARCHAR(255) NOT NULL,
         state VARCHAR(255) NOT NULL,
         district VARCHAR(255) NOT NULL,
         pincode INT NOT NULL,
-        address VARCHAR(1000),
-        FOREIGN KEY (user_id) REFERENCES farmtotable_users (id),
-        FOREIGN KEY (user_email) REFERENCES farmtotable_users (email)
+        address TEXT,
+        FOREIGN KEY (user_id) REFERENCES farmtotable_users (id) ON DELETE CASCADE
       )
     `;
 
-    // Check if the user ID exists for the given email
+    // Get the user ID for the given email
     const userResult = await sql`SELECT id FROM farmtotable_users WHERE email = ${data.email}`;
     const userId = userResult.rows[0].id;
 
@@ -34,7 +33,6 @@ const storeUserProfile = async (data) => {
         WHERE user_email = ${data.email}
       `;
     } else {
-  
       // Insert new profile
       await sql`
         INSERT INTO farmtotable_profile (user_id, user_email, name, state, district, pincode, address)
@@ -45,10 +43,9 @@ const storeUserProfile = async (data) => {
     // Update is_profile_complete flag
     await sql`
       UPDATE farmtotable_users
-      SET is_profile_complete = ${true}
+      SET is_profile_complete = TRUE
       WHERE email = ${data.email}
     `;
-
   } catch (error) {
     console.error('Error storing user profile:', error);
   }
