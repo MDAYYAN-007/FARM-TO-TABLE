@@ -12,15 +12,25 @@ const handler = NextAuth({
   ],
   callbacks: {
     async signIn({ user }) {
-      await storeUserLogin(user.email);
-      return true;
+      try {
+        await storeUserLogin(user.email);
+        return true;
+      } catch (error) {
+        console.error('Error in signIn callback:', error);
+        return false;
+      }
     },
     async session({ session }) {
-      if (session.user && session.user.email) {
-        const result = await sql`SELECT is_profile_complete FROM farmtotable_users WHERE email = ${session.user.email}`;
-        session.user.isProfileComplete = result.rows[0]?.is_profile_complete || false;
+      try {
+        if (session.user && session.user.email) {
+          const result = await sql`SELECT is_profile_complete FROM farmtotable_users WHERE email = ${session.user.email}`;
+          session.user.isProfileComplete = result.rows[0]?.is_profile_complete || false;
+        }
+        return session;
+      } catch (error) {
+        console.error('Error in session callback:', error);
+        return session;
       }
-      return session;
     },
   },
 });
