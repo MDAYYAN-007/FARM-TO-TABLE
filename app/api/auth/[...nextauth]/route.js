@@ -33,6 +33,7 @@ const handler = NextAuth({
       }
     },
   },
+  debug: true, // Enable debug mode
 });
 
 export { handler as GET, handler as POST };
