@@ -10,7 +10,7 @@ import SessionWrapper from "@/components/SessionWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "FARM TO TABLE",
+  title: "Farm To Table",
   description: "A website to directly connect farmers and consumers",
 };
 
