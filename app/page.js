@@ -15,7 +15,7 @@ export default function Home() {
             <h1 className="text-4xl font-bold text-white mb-4">
               Welcome to FarmToTable
             </h1>
-            <p className="text-xl text-white mb-8 max-sm:text-md">
+            <p className="text-xl text-white mb-8 max-xsm:text-md">
               {/* At FarmToTable, we are committed to promoting sustainable
               agriculture and supporting local farmers. Our platform connects
               consumers directly with farmers, ensuring fair prices and
