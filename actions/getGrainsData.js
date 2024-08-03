@@ -8,7 +8,7 @@ const getGrainsData = async (email) => {
     const userId = userResult.rows[0].id;
 
     const response = await sql`
-      SELECT * FROM farmtotable_products WHERE product_type = 'grains' AND user_id != ${userId};
+      SELECT * FROM farmtotable_products WHERE product_type = 'grains' AND user_id != ${userId} AND available_units != 0;
     `;
 
     if (response && response.rows && response.rows.length > 0) {
