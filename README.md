@@ -1,6 +1,3 @@
-Here's the updated documentation with the Vercel link included:
-
-```markdown
 # FARM TO TABLE
 
 FARM TO TABLE is a web platform that connects local farmers directly with consumers, providing a transparent marketplace for high-quality, sustainable, and fairly priced produce. Our mission is to support local agriculture and promote sustainable practices.
