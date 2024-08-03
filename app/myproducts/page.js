@@ -60,8 +60,8 @@ const ProductsPage = () => {
     return (
       <div className="py-8 text-center">
         <h1 className="text-3xl font-bold text-center mb-6">Products Sold by You</h1>
-        <div className="overflow-x-auto">
-          <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg w-full">
+        <div className="overflow-x-auto max-md:mx-4">
+          <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg w-max mx-auto ">
             <thead>
               <tr className="bg-gray-100 text-white">
                 <th className="py-2 px-4 border-b min-w-32">Image</th>

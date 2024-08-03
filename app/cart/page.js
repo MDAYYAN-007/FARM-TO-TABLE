@@ -76,15 +76,15 @@ const CartPage = () => {
 
   return (
     <div className="min-h-75vh mx-auto max-w-fit">
-      <h1 className="text-3xl font-bold text-center mb-8">Shopping Cart</h1>
+      <h1 className="text-3xl font-bold text-center mt-6 mb-8">Shopping Cart</h1>
 
       {orderMessage && (
         <div className="text-center mb-4">
           <p className="text-xl font-bold">{orderMessage}</p>
         </div>
       )}
-      <div className="overflow-x-auto w-5/6 mx-auto">
-      <table className="table-auto w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
+      <div className="overflow-x-auto max-md:mx-4">
+      <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg text-center w-max">
         <thead>
           <tr className="bg-gray-100 text-white">
             <th className="py-2 px-2 border-b min-w-32">Image</th>

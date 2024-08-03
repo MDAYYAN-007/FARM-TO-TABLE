@@ -50,7 +50,7 @@ const OrdersPlacedPage = () => {
     <div className="min-h-75vh mx-auto p-3">
       <h1 className="text-3xl font-bold text-center my-4">Orders Placed</h1>
       <div className="overflow-x-auto">
-      <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg text-center">
+      <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg text-center mx-auto">
         <thead>
           <tr className="bg-gray-100 text-white">
             <th className="py-2 px-2 border-b min-w-32">Image</th>
