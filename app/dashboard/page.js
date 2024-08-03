@@ -94,7 +94,7 @@ const Dashboard = () => {
               name="email"
               placeholder="Enter your email"
               {...register("email", { required: true })}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 sm:text-sm bg-gray-200"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-green-600 sm:text-sm bg-gray-200 cursor-not-allowed"
               disabled
             />
           </div>
