@@ -16,7 +16,7 @@ const Info = () => {
   return (
     <div className="min-h-75vh mx-auto py-8 flex max-md:flex-col">
       {/* Sidebar */}
-      <div className="w-2/12 bg-white shadow-md rounded-lg p-4 mr-3 fixed top-32 ml-4 h-96 overflow-y-scroll max-md:w-full max-md:mx-auto max-md:h-max max-md:static">
+      <div className="w-3/12 bg-white shadow-md rounded-lg p-4 mr-3 fixed top-32 ml-4 h-96 overflow-y-scroll max-md:w-full max-md:mx-auto max-md:h-max max-md:static">
         <h2 className="text-xl font-semibold mb-4">Agenda</h2>
         <div className="flex flex-col max-md:justify-center">
           {[
@@ -42,7 +42,7 @@ const Info = () => {
       </div>
 
       {/* Tab Content */}
-      <div className="w-9/12 ml-52 max-md:w-full max-md:mt-8 max-md:ml-0 p-1 ">
+      <div className="w-8/12 ml-auto max-md:w-full max-md:mt-8 max-md:ml-0 p-1 ">
         {/* Tab 1 */}
         <div id="tab1" className={`${activeTab === "tab1" ? "" : "hidden"}`}>
           <h2 className="text-2xl font-bold mb-4">Introduction</h2>
