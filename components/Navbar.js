@@ -80,7 +80,7 @@ const Navbar = () => {
             <button className="nav-btns focus:outline-none px-2">
               <FontAwesomeIcon className="text-3xl" icon={faUser} />
             </button>
-            <div className="dropdown-menu absolute right-0 w-60 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg">
+            <div className="dropdown-menu absolute right-0 w-72 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg">
               <Link
                 href="/myproducts"
                 className="block nav-dp-btns px-4 py-2 text-gray-800  hover:shadow-xl hover:text-white rounded-md"
@@ -96,7 +96,17 @@ const Navbar = () => {
                   icon={faClipboardList}
                   className="mr-2 text-2xl"
                 />{" "}
-                Orders
+                Orders-Received
+              </Link>
+              <Link
+                href="/orders-placed"
+                className="block nav-dp-btns px-4 py-2 text-gray-800  hover:shadow-xl hover:text-white rounded-md"
+              >
+                <FontAwesomeIcon
+                  icon={faClipboardList}
+                  className="mr-2 text-2xl"
+                />{" "}
+                Orders-Placed
               </Link>
               <Link
                 href="/cart"

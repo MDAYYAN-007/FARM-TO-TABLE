@@ -1,25 +1,34 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import getFruitsData from "@/actions/getFruitsData";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Loader from "@/components/Loader";
 import Image from "next/image";
-import Link from "next/link";
+import addToCart from "@/actions/addToCart";
 
 const FruitList = () => {
   const { data: session, status } = useSession();
   const [fruits, setFruits] = useState([]);
   const [quantities, setQuantities] = useState({});
-
+  const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
-    const fetchFruits = async () => {
-      const fruitData = await getFruitsData();
-      setFruits(fruitData);
-      setQuantities(fruitData.reduce((acc, fruit) => ({ ...acc, [fruit.id]: 0 }), {}));
-    };
+    if (session) {
+      const fetchFruits = async () => {
+        const fruitData = await getFruitsData(session.user.email);
+        setFruits(fruitData);
+        if(fruits!==null){
+          setQuantities(fruitData.reduce((acc, fruit) => ({ ...acc, [fruit.id]: 0 }), {}));
+        }
+        setLoading(false);
+      };
+      
 
-    fetchFruits();
-  }, []);
+      fetchFruits();
+    }else{
+      setLoading(false)
+    }
+  }, [session]);
 
   const handleIncrement = (id) => {
     setQuantities((prevQuantities) => {
@@ -42,12 +51,23 @@ const FruitList = () => {
     }));
   };
 
-  const handleAddToCart = (id) => {
-    console.log(`Adding fruit with ID ${id} to cart with quantity ${quantities[id]}`);
-    // Add your add-to-cart logic here
+  const handleAddToCart = async (fruit) => {
+    
+    const quantity = quantities[fruit.id];
+    if (quantity > 0) {
+      try {
+        await addToCart(fruit,quantity,session.user.email);
+        setQuantities((prevQuantities) => ({
+          ...prevQuantities,
+          [fruit.id]: 0,
+        }));
+      } catch (error) {
+        console.error("Error adding to cart:", error);
+      }
+    }
   };
 
-  if (status === "loading") {
+  if (status === "loading" || loading) {
     return <Loader />;
   }
 
@@ -55,11 +75,13 @@ const FruitList = () => {
     return (
       <div className="min-h-75vh flex flex-col gap-4 justify-center items-center">
         <p className="text-xl font-bold">You need to login first!</p>
-        <button
-          type="button"
-          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-3 text-center me-2 mb-2"
-        >
-          <Link href="/login">Go To Login</Link>
+        <button className="flex items-center text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-lg font-medium dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={() => signIn("google")}>
+          <img
+            src="/images/googleicon.png"
+            alt="Google Icon"
+            className="h-8 w-8 mr-2"
+          />
+          <span>Continue with Google</span>
         </button>
       </div>
     );
@@ -110,7 +132,7 @@ const FruitList = () => {
                 <div className="flex justify-between">
                   <button
                     type="button"
-                    onClick={() => handleAddToCart(fruit.id)}
+                    onClick={() => handleAddToCart(fruit)}
                     className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
                   >
                     Add to Cart
@@ -137,12 +159,12 @@ const FruitList = () => {
         </div>
       </div>
     );
-  }else {
+  } else {
     return (
       <div className="min-h-75vh flex flex-col gap-4 justify-center items-center">
         <h1 className="text-3xl font-bold text-center">Fresh Fruits</h1>
         <p className="text-gray-700 mb-6 text-center">
-        Discover a variety of fresh, organic fruits from local farmers. Enjoy healthy and delicious options for every meal.
+          Discover a variety of fresh, organic fruits from local farmers. Enjoy healthy and delicious options for every meal.
         </p>
         <p>No products to display</p>
       </div>

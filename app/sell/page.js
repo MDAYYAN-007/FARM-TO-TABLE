@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect,useState } from "react";
 import { useForm } from "react-hook-form";
-import { useSession } from "next-auth/react";
+import { useSession,signIn } from "next-auth/react";
 import Link from "next/link";
 import states from "@/statesndist";
 import Loader from "@/components/Loader";
@@ -20,7 +20,6 @@ const Sell = () => {
       district: "",
       price: "",
       availableUnits: 1,
-      description: "",
       address: "",
       pincode: "",
     },
@@ -160,23 +159,6 @@ const Sell = () => {
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm"
                 />
               </div>
-
-              <div>
-                <label
-                  htmlFor="description"
-                  className="block text-md font-semibold text-black"
-                >
-                  Product Description
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  rows="4"
-                  placeholder="Enter a brief description of the product"
-                  {...register("description", { required: true })}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm"
-                ></textarea>
-              </div>
               <div>
                 <label
                   htmlFor="state"
@@ -290,13 +272,15 @@ const Sell = () => {
     );
   } else {
     return (
-      <div className="min-h-80vh flex flex-col gap-4 justify-center items-center">
+      <div className="min-h-75vh flex flex-col gap-4 justify-center items-center">
         <p className="text-xl font-bold">You need to login first!</p>
-        <button
-          type="button"
-          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-3 text-center me-2 mb-2"
-        >
-          <Link href="/login">Go To Login</Link>
+        <button className="flex items-center text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-lg font-medium dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={() => signIn("google")}>
+          <img
+            src="/images/googleicon.png"
+            alt="Google Icon"
+            className="h-8 w-8 mr-2"
+          />
+          <span>Continue with Google</span>
         </button>
       </div>
     );

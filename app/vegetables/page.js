@@ -4,22 +4,31 @@ import getVegetablesData from "@/actions/getVegetablesData";
 import { useSession } from "next-auth/react";
 import Loader from "@/components/Loader";
 import Image from "next/image";
+import addToCart from "@/actions/addToCart";
 import Link from "next/link";
 
 const VegetableList = () => {
   const { data: session, status } = useSession();
   const [vegetables, setVegetables] = useState([]);
   const [quantities, setQuantities] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchVegetables = async () => {
-      const vegetableData = await getVegetablesData();
-      setVegetables(vegetableData);
-      setQuantities(vegetableData.reduce((acc, vegetable) => ({ ...acc, [vegetable.id]: 0 }), {}));
-    };
+    if (session) {
+      const fetchVegetables = async () => {
+        const vegetableData = await getVegetablesData(session.user.email);
+        setVegetables(vegetableData);
+        if(vegetables!==null){
+          setQuantities(vegetableData.reduce((acc, vegetable) => ({ ...acc, [vegetable.id]: 0 }), {}));
+        }
+        setLoading(false);
+      };
 
-    fetchVegetables();
-  }, []);
+      fetchVegetables();
+    }else{
+      setLoading(false)
+    }
+  }, [session]);
 
   const handleIncrement = (id) => {
     setQuantities((prevQuantities) => {
@@ -42,12 +51,24 @@ const VegetableList = () => {
     }));
   };
 
-  const handleAddToCart = (id) => {
-    console.log(`Adding vegetable with ID ${id} to cart with quantity ${quantities[id]}`);
-    // Add your add-to-cart logic here
+  const handleAddToCart = async (vegetable) => {
+    
+    const quantity = quantities[vegetable.id];
+    if (quantity > 0) {
+      console.log("Hi")
+      try {
+        await addToCart(vegetable,quantity,session.user.email);
+        setQuantities((prevQuantities) => ({
+          ...prevQuantities,
+          [vegetable.id]: 0,
+        }));
+      } catch (error) {
+        console.error("Error adding to cart:", error);
+      }
+    }
   };
 
-  if (status === "loading") {
+  if (status === "loading" || loading) {
     return <Loader />;
   }
 
@@ -55,11 +76,13 @@ const VegetableList = () => {
     return (
       <div className="min-h-75vh flex flex-col gap-4 justify-center items-center">
         <p className="text-xl font-bold">You need to login first!</p>
-        <button
-          type="button"
-          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-3 text-center me-2 mb-2"
-        >
-          <Link href="/login">Go To Login</Link>
+        <button className="flex items-center text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-lg font-medium dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={() => signIn("google")}>
+          <img
+            src="/images/googleicon.png"
+            alt="Google Icon"
+            className="h-8 w-8 mr-2"
+          />
+          <span>Continue with Google</span>
         </button>
       </div>
     );
@@ -110,17 +133,17 @@ const VegetableList = () => {
                 <div className="flex justify-between">
                   <button
                     type="button"
-                    onClick={() => handleAddToCart(vegetable.id)}
+                    onClick={() => handleAddToCart(vegetable)}
                     className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
                   >
                     Add to Cart
                   </button>
-                  <a
+                  <Link
                     href="/cart"
                     className="bg-green-550 text-white font-bold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
                   >
                     Buy Now
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))
@@ -128,16 +151,16 @@ const VegetableList = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <a
+          <Link
             href="/cart"
             className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
           >
             View Cart
-          </a>
+          </Link>
         </div>
       </div>
     );
-  }else {
+  } else {
     return (
       <div className="min-h-75vh flex flex-col gap-4 justify-center items-center">
         <h1 className="text-3xl font-bold text-center">Fresh Vegetables</h1>

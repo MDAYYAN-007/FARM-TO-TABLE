@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import getProductsData from "@/actions/getProductData";
 import Loader from "@/components/Loader";
-import Link from "next/link";
 import deleteProduct from "@/actions/deleteProduct"; 
 
 const ProductsPage = () => {
@@ -45,11 +44,13 @@ const ProductsPage = () => {
     return (
       <div className="min-h-75vh flex flex-col gap-4 justify-center items-center">
         <p className="text-xl font-bold">You need to login first!</p>
-        <button
-          type="button"
-          className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-8 py-3 text-center me-2 mb-2"
-        >
-          <Link href="/login">Go To Login</Link>
+        <button className="flex items-center text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 dark:bg-gray-900 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-lg font-medium dark:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={() => signIn("google")}>
+          <img
+            src="/images/googleicon.png"
+            alt="Google Icon"
+            className="h-8 w-8 mr-2"
+          />
+          <span>Continue with Google</span>
         </button>
       </div>
     );
@@ -67,9 +68,6 @@ const ProductsPage = () => {
                 <th className="py-2 px-4 border-b">Product Name</th>
                 <th className="py-2 px-4 border-b">Price</th>
                 <th className="py-2 px-4 border-b">Available Units</th>
-                <th className="py-2 px-4 border-b">State</th>
-                <th className="py-2 px-4 border-b">District</th>
-                <th className="py-2 px-4 border-b">Description</th>
                 <th className="py-2 px-4 border-b">Actions</th>
               </tr>
             </thead>
@@ -90,9 +88,6 @@ const ProductsPage = () => {
                   <td className="py-2 px-4 border-b">{product.product_name}</td>
                   <td className="py-2 px-4 border-b">{product.price}</td>
                   <td className="py-2 px-4 border-b">{product.available_units}</td>
-                  <td className="py-2 px-4 border-b">{product.state}</td>
-                  <td className="py-2 px-4 border-b">{product.district}</td>
-                  <td className="py-2 px-4 border-b max-w-xs break-words">{product.product_desc}</td>
                   <td className="py-2 px-4 border-b">
                     <button
                       className="text-red-600 hover:text-red-900"

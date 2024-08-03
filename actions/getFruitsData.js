@@ -1,10 +1,14 @@
 "use server";
 import { sql } from "@vercel/postgres";
 
-const getFruitsData = async () => {
+const getFruitsData = async (email) => {
   try {
+    // Get the user ID for the given email
+    const userResult = await sql`SELECT id FROM farmtotable_users WHERE email = ${email}`;
+    const userId = userResult.rows[0].id;
+
     const response = await sql`
-      SELECT * FROM farmtotable_products WHERE product_type = 'fruits';
+      SELECT * FROM farmtotable_products WHERE product_type = 'fruits' AND user_id != ${userId};
     `;
 
     if (response && response.rows && response.rows.length > 0) {

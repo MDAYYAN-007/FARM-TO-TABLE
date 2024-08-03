@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useSession, signIn } from 'next-auth/react';
-import getOrdersRecieved from '@/actions/getOrdersRecieved';
+import getOrdersPlaced from '@/actions/getOrdersPlaced';
 import Loader from '@/components/Loader';
 
-const OrdersRecievedPage = () => {
+const OrdersPlacedPage = () => {
   const { data: session, status } = useSession();
   const [orders, setOrders] = useState([]);
 
@@ -12,7 +12,7 @@ const OrdersRecievedPage = () => {
     if (session) {
       const fetchOrders = async () => {
         try {
-          const response = await getOrdersRecieved(session.user.email); // Fetch orders using your function
+          const response = await getOrdersPlaced(session.user.email); // Fetch orders using your function
           setOrders(response);
         } catch (error) {
           console.error('Error fetching orders:', error);
@@ -48,7 +48,7 @@ const OrdersRecievedPage = () => {
 
   return (
     <div className="min-h-75vh mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center my-8">Orders-Received</h1>
+      <h1 className="text-3xl font-bold text-center my-8">Orders Placed</h1>
       <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
         <thead>
           <tr className="bg-gray-100 text-white">
@@ -83,4 +83,4 @@ const OrdersRecievedPage = () => {
   );
 };
 
-export default OrdersRecievedPage;
+export default OrdersPlacedPage;

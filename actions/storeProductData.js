@@ -12,7 +12,6 @@ const storeProductData = async (data, email, imageLink) => {
         product_type VARCHAR(255) NOT NULL,
         price INT NOT NULL,
         available_units INT NOT NULL,
-        product_desc TEXT NOT NULL,
         product_image VARCHAR(1000) NOT NULL,
         FOREIGN KEY (user_id) REFERENCES farmtotable_users (id) ON DELETE CASCADE
       )
@@ -24,8 +23,8 @@ const storeProductData = async (data, email, imageLink) => {
 
     // Insert the product data
     await sql`
-      INSERT INTO farmtotable_products (user_id, product_name, product_type, price, available_units, product_desc, product_image)
-      VALUES (${userId}, ${data.productName}, ${data.productType}, ${data.price}, ${data.availableUnits}, ${data.description}, ${imageLink})
+      INSERT INTO farmtotable_products (user_id, product_name, product_type, price, available_units, product_image)
+      VALUES (${userId}, ${data.productName}, ${data.productType}, ${data.price}, ${data.availableUnits}, ${imageLink})
     `;
   } catch (error) {
     console.error('Error storing product data:', error);
