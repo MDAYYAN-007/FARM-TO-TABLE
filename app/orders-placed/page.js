@@ -7,6 +7,7 @@ import Loader from '@/components/Loader';
 const OrdersPlacedPage = () => {
   const { data: session, status } = useSession();
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (session) {
@@ -20,10 +21,13 @@ const OrdersPlacedPage = () => {
       };
 
       fetchOrders();
+      setLoading(false);
+    }else{
+      setLoading(false)
     }
   }, [session]);
 
-  if (status === 'loading') {
+  if (status === 'loading' || loading) {
     return <Loader />; // Add a Loader component to show loading state
   }
 

@@ -8,8 +8,8 @@ const OrdersRecievedPage = () => {
   const { data: session, status } = useSession();
   const [orders, setOrders] = useState([]);
   const totalEarnings = orders.reduce((acc, order) => acc + (order.price * order.quantity), 0);
-const totalItemsSold = orders.reduce((acc, order) => acc + order.quantity, 0);
-
+  const totalItemsSold = orders.reduce((acc, order) => acc + order.quantity, 0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (session) {
@@ -23,10 +23,13 @@ const totalItemsSold = orders.reduce((acc, order) => acc + order.quantity, 0);
       };
 
       fetchOrders();
+      setLoading(false);
+    }else{
+      setLoading(false);
     }
   }, [session]);
 
-  if (status === 'loading') {
+  if (status === 'loading' || loading) {
     return <Loader />; // Add a Loader component to show loading state
   }
 
@@ -53,43 +56,43 @@ const totalItemsSold = orders.reduce((acc, order) => acc + order.quantity, 0);
     <div className="min-h-75vh p-6">
       <h1 className="text-3xl font-bold text-center my-4">Orders-Received</h1>
       <div className="overflow-x-auto">
-      <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg text-center mx-auto">
-        <thead>
-          <tr className="bg-gray-100 text-white">
-            <th className="py-2 px-2 border-b min-w-32">Image</th>
-            <th className="py-2 px-4 border-b min-w-28">Product Name</th>
-            <th className="py-2 px-4 border-b min-w-28">Price</th>
-            <th className="py-2 px-4 border-b min-w-28">Quantity</th>
-            <th className="py-2 px-4 border-b min-w-28">Total Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.length === 0 ? (
-            <tr>
-              <td colSpan="5" className="py-4">No orders found</td>
+        <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg text-center mx-auto">
+          <thead>
+            <tr className="bg-gray-100 text-white">
+              <th className="py-2 px-2 border-b min-w-32">Image</th>
+              <th className="py-2 px-4 border-b min-w-28">Product Name</th>
+              <th className="py-2 px-4 border-b min-w-28">Price</th>
+              <th className="py-2 px-4 border-b min-w-28">Quantity</th>
+              <th className="py-2 px-4 border-b min-w-28">Total Amount</th>
             </tr>
-          ) : (
-            orders.map((order) => (
-              <tr key={order.id} className='hover:bg-gray-50'>
-                <td className="py-2 px-4 border-b max-w-44">
-                  <img src={order.product_image} alt={order.product_name} className="w-20 h-20 object-cover m-auto" />
-                </td>
-                <td className="py-2 px-4 border-b">{order.product_name}</td>
-                <td className="py-2 px-4 border-b">₹{order.price}</td>
-                <td className="py-2 px-4 border-b">{order.quantity}</td>
-                <td className="py-2 px-4 border-b">₹{order.price * order.quantity}</td>
+          </thead>
+          <tbody>
+            {orders.length === 0 ? (
+              <tr>
+                <td colSpan="5" className="py-4">No orders found</td>
               </tr>
-            ))
-          )}
-      </tbody>
-    </table>
-    </div>
-    {orders.length > 0 && (
-      <div className="mt-9 text-center">
-        <p className="text-xl font-bold">Total Items Sold: {totalItemsSold}</p>
-        <p className="text-xl font-bold">Total Earnings: ₹{totalEarnings}</p>
+            ) : (
+              orders.map((order) => (
+                <tr key={order.id} className='hover:bg-gray-50'>
+                  <td className="py-2 px-4 border-b max-w-44">
+                    <img src={order.product_image} alt={order.product_name} className="w-20 h-20 object-cover m-auto" />
+                  </td>
+                  <td className="py-2 px-4 border-b">{order.product_name}</td>
+                  <td className="py-2 px-4 border-b">₹{order.price}</td>
+                  <td className="py-2 px-4 border-b">{order.quantity}</td>
+                  <td className="py-2 px-4 border-b">₹{order.price * order.quantity}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
-    )}
+      {orders.length > 0 && (
+        <div className="mt-9 text-center">
+          <p className="text-xl font-bold">Total Items Sold: {totalItemsSold}</p>
+          <p className="text-xl font-bold">Total Earnings: ₹{totalEarnings}</p>
+        </div>
+      )}
     </div >
   );
 };
