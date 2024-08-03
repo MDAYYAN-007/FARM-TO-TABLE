@@ -170,7 +170,7 @@ const Sell = () => {
                   id="state"
                   name="state"
                   {...register("state", { required: true })}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm cursor-not-allowed"
                   disabled
                 >
                   <option value="" disabled>
@@ -194,7 +194,7 @@ const Sell = () => {
                   id="district"
                   name="district"
                   {...register("district", { required: true })}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm cursor-not-allowed"
                   disabled
                 >
                   <option value="" disabled>
@@ -222,7 +222,7 @@ const Sell = () => {
                   name="pincode"
                   placeholder="Enter your pincode"
                   {...register("pincode", { required: true })}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 sm:text-sm cursor-not-allowed"
                   disabled
                 />
               </div>
@@ -239,7 +239,7 @@ const Sell = () => {
                   rows="4"
                   placeholder="Enter your address"
                   {...register("address", { required: true })}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-550 focus:border-green-550 cursor-not-allowed"
                   disabled
                 ></textarea>
               </div>
