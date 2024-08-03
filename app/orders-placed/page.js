@@ -47,16 +47,17 @@ const OrdersPlacedPage = () => {
   }
 
   return (
-    <div className="min-h-75vh mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center my-8">Orders Placed</h1>
-      <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
+    <div className="min-h-75vh mx-auto p-3">
+      <h1 className="text-3xl font-bold text-center my-4">Orders Placed</h1>
+      <div className="overflow-x-auto">
+      <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg text-center">
         <thead>
           <tr className="bg-gray-100 text-white">
-            <th className="py-2 px-2 border-b max-w-44">Image</th>
-            <th className="py-2 px-4 border-b">Product Name</th>
-            <th className="py-2 px-4 border-b">Price</th>
-            <th className="py-2 px-4 border-b">Quantity</th>
-            <th className="py-2 px-4 border-b">Total Amount</th>
+            <th className="py-2 px-2 border-b min-w-32">Image</th>
+            <th className="py-2 px-4 border-b min-w-28">Product Name</th>
+            <th className="py-2 px-4 border-b min-w-28">Price</th>
+            <th className="py-2 px-4 border-b min-w-28">Quantity</th>
+            <th className="py-2 px-4 border-b min-w-28">Total Amount</th>
           </tr>
         </thead>
         <tbody>
@@ -79,6 +80,7 @@ const OrdersPlacedPage = () => {
           )}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

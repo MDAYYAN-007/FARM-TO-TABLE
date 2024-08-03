@@ -26,8 +26,8 @@ const Navbar = () => {
   return (
     // <nav className="bg-gradient-to-r from-teal-200 to-lime-200 py-2 pt-4 text-white fixed top-0 left-0 w-full z-20 shadow-md backdrop-filter backdrop-blur-lg bg-opacity-30 "></nav>
     <nav className=" py-2 pt-4 text-white fixed top-0 left-0 w-full z-20 shadow-md backdrop-filter backdrop-blur-lg bg-opacity-30 ">
-      <div className="flex flex-row items-center justify-between px-8">
-        <div className="mb-4">
+      <div className="flex flex-row items-center justify-between px-8 max-md:flex-col">
+        <div className="mb-4  max-md:text-center">
           <h1 className="text-4xl font-bold text-green-700">
             <Link href="/">FarmToTable</Link>
           </h1>
@@ -43,7 +43,7 @@ const Navbar = () => {
             <button className="nav-btns focus:outline-none px-2">
               <FontAwesomeIcon className="text-3xl" icon={faBars} />
             </button>
-            <div className="dropdown-menu absolute right-0 w-56 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg">
+            <div className="dropdown-menu absolute right-0 w-56 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg  max-xsm:left-[-100px] max-xsm:text-lg">
               <Link
                 href="/buy"
                 className="block nav-dp-btns px-4 py-2 text-gray-800  hover:shadow-xl hover:text-white rounded-md"
@@ -80,7 +80,7 @@ const Navbar = () => {
             <button className="nav-btns focus:outline-none px-2">
               <FontAwesomeIcon className="text-3xl" icon={faUser} />
             </button>
-            <div className="dropdown-menu absolute right-0 w-72 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg">
+            <div className="dropdown-menu absolute right-0 w-72 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg max-xsm:left-[-140px] max-xsm:text-lg">
               <Link
                 href="/myproducts"
                 className="block nav-dp-btns px-4 py-2 text-gray-800  hover:shadow-xl hover:text-white rounded-md"
@@ -124,7 +124,7 @@ const Navbar = () => {
             <button className="nav-btns focus:outline-none px-2">
               <FontAwesomeIcon className="text-3xl" icon={faCog} />
             </button>
-            <div className="dropdown-menu absolute right-0 w-56 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg">
+            <div className="dropdown-menu absolute right-0 w-56 p-1 bg-white bg-opacity-90 text-black text-2xl rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 invisible group-hover:visible backdrop-filter backdrop-blur-lg  max-xsm:left-[-100px] max-xsm:text-lg">
               <Link
                 href="/dashboard"
                 className="block nav-dp-btns px-4 py-2 text-gray-800  hover:shadow-xl hover:text-white rounded-md"

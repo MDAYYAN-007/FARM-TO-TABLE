@@ -15,12 +15,13 @@ export default function Home() {
             <h1 className="text-4xl font-bold text-white mb-4">
               Welcome to FarmToTable
             </h1>
-            <p className="text-xl text-white mb-8">
-              At FarmFresh, we are committed to promoting sustainable
+            <p className="text-xl text-white mb-8 max-sm:text-md">
+              {/* At FarmToTable, we are committed to promoting sustainable
               agriculture and supporting local farmers. Our platform connects
               consumers directly with farmers, ensuring fair prices and
               high-quality produce. Join us in making a difference in your
-              community!
+              community! */}
+              Our demo project simplifies the process of ordering products directly from local farmers. Users can browse available items, add them to their cart, and place orders. The platform ensures that users only see products in stock, and they can manage their orders efficiently. With seamless Google authentication, users can quickly sign in and access their order history. The project focuses on providing a user-friendly interface and supports local agriculture by connecting consumers directly with producers.
             </p>
           </div>
         </div>
@@ -40,16 +41,16 @@ export default function Home() {
       </div>
 
       <div
-        className="h-auto py-7 flex items-center justify-center gap-6 w-full flex-wrap text-black"
+        className="h-auto py-7 flex items-center justify-center gap-6 w-full flex-wrap text-black max-sm:flex-col"
         style={{
           backgroundImage: "url('/images/home_bg2.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="w-[46%]  flex justify-end">
+        <div className="w-[46%]  flex justify-end max-xsm:justify-center">
           {" "}
-          <div className="flex h-80 w-72 p-3 flex-col items-center justify-center gap-5 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
+          <div className="flex h-80 w-72 min-w-72 p-3 flex-col items-center justify-center gap-5 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
 
 
             <h1 className="text-3xl font-medium">BUY</h1>
@@ -64,8 +65,8 @@ export default function Home() {
             
           </div>
         </div>
-        <div className="w-[46%]  flex justify-start">
-          <div className="flex h-80 w-72 p-3 flex-col items-center justify-center gap-5 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
+        <div className="w-[46%]  flex justify-start max-xsm:justify-center">
+          <div className="flex h-80 w-72 min-w-72 p-3 flex-col items-center justify-center gap-5 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
             <h1 className="text-3xl font-medium">SELL</h1>
             <p className="text-center">
               Sell your fresh, organic produce directly to consumers at fair
@@ -76,8 +77,8 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="w-[46%]  flex justify-end">
-          <div className="flex h-80 w-72 p-3 flex-col items-center justify-center gap-5 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
+        <div className="w-[46%]  flex justify-end max-xsm:justify-center">
+          <div className="flex h-80 w-72 min-w-72 p-3 flex-col items-center justify-center gap-5 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
             <h1 className="text-center text-2xl font-medium">
               PLANT THE SEEDS OF KNOWLEDGE
             </h1>
@@ -91,8 +92,8 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="w-[46%]  flex justify-start">
-          <div className="flex h-80 w-72 p-3 flex-col items-center justify-center gap-3 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
+        <div className="w-[46%]  flex justify-start max-xsm:justify-center">
+          <div className="flex h-80 w-72 min-w-72 p-3 flex-col items-center justify-center gap-3 rounded-2xl bg-gray-100 bg-opacity-30 border-2 border-gray-300 shadow-md backdrop-filter backdrop-blur-sm">
             <h1 className="text-center text-2xl font-medium">
               PROTECT YOUR CROPS
             </h1>

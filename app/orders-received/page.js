@@ -7,6 +7,9 @@ import Loader from '@/components/Loader';
 const OrdersRecievedPage = () => {
   const { data: session, status } = useSession();
   const [orders, setOrders] = useState([]);
+  const totalEarnings = orders.reduce((acc, order) => acc + (order.price * order.quantity), 0);
+const totalItemsSold = orders.reduce((acc, order) => acc + order.quantity, 0);
+
 
   useEffect(() => {
     if (session) {
@@ -47,16 +50,17 @@ const OrdersRecievedPage = () => {
   }
 
   return (
-    <div className="min-h-75vh mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center my-8">Orders-Received</h1>
-      <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
+    <div className="min-h-75vh p-6">
+      <h1 className="text-3xl font-bold text-center my-4">Orders-Received</h1>
+      <div className="overflow-x-auto">
+      <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg text-center">
         <thead>
           <tr className="bg-gray-100 text-white">
-            <th className="py-2 px-2 border-b max-w-44">Image</th>
-            <th className="py-2 px-4 border-b">Product Name</th>
-            <th className="py-2 px-4 border-b">Price</th>
-            <th className="py-2 px-4 border-b">Quantity</th>
-            <th className="py-2 px-4 border-b">Total Amount</th>
+            <th className="py-2 px-2 border-b min-w-32">Image</th>
+            <th className="py-2 px-4 border-b min-w-28">Product Name</th>
+            <th className="py-2 px-4 border-b min-w-28">Price</th>
+            <th className="py-2 px-4 border-b min-w-28">Quantity</th>
+            <th className="py-2 px-4 border-b min-w-28">Total Amount</th>
           </tr>
         </thead>
         <tbody>
@@ -77,9 +81,16 @@ const OrdersRecievedPage = () => {
               </tr>
             ))
           )}
-        </tbody>
-      </table>
+      </tbody>
+    </table>
     </div>
+    {orders.length > 0 && (
+      <div className="mt-9 text-center">
+        <p className="text-xl font-bold">Total Items Sold: {totalItemsSold}</p>
+        <p className="text-xl font-bold">Total Earnings: ₹{totalEarnings}</p>
+      </div>
+    )}
+    </div >
   );
 };
 

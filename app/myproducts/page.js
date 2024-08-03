@@ -60,15 +60,15 @@ const ProductsPage = () => {
     return (
       <div className="py-8 text-center">
         <h1 className="text-3xl font-bold text-center mb-6">Products Sold by You</h1>
-        <div className="mx-auto">
-          <table className="mx-auto bg-white border border-gray-200 rounded-lg shadow-lg w-5/6">
+        <div className="overflow-x-auto">
+          <table className="table-auto bg-white border border-gray-200 rounded-lg shadow-lg w-full">
             <thead>
               <tr className="bg-gray-100 text-white">
-                <th className="py-2 px-4 border-b">Image</th>
-                <th className="py-2 px-4 border-b">Product Name</th>
-                <th className="py-2 px-4 border-b">Price</th>
-                <th className="py-2 px-4 border-b">Available Units</th>
-                <th className="py-2 px-4 border-b">Actions</th>
+                <th className="py-2 px-4 border-b min-w-32">Image</th>
+                <th className="py-2 px-4 border-b min-h-28">Product Name</th>
+                <th className="py-2 px-4 border-b min-h-28">Price</th>
+                <th className="py-2 px-4 border-b min-h-28">Available Units</th>
+                <th className="py-2 px-4 border-b min-h-28">Actions</th>
               </tr>
             </thead>
             <tbody>

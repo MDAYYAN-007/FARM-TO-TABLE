@@ -17,8 +17,8 @@ export default function Component() {
   if (session) {
     return (
       <>
-        <div className="min-h-75vh flex flex-col justify-center items-center space-y-4">
-          <div className="text-xl font-semibold">
+        <div className="min-h-75vh flex flex-col justify-center items-center space-y-4 mx-4">
+          <div className="text-xl font-semibold text-center">
             Signed in as {session.user.email}
           </div>
           <div className="flex gap-4">

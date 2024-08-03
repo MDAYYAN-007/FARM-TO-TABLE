@@ -55,7 +55,6 @@ const VegetableList = () => {
     
     const quantity = quantities[vegetable.id];
     if (quantity > 0) {
-      console.log("Hi")
       try {
         await addToCart(vegetable,quantity,session.user.email);
         setQuantities((prevQuantities) => ({
@@ -96,12 +95,12 @@ const VegetableList = () => {
           Discover a variety of fresh, organic vegetables from local farmers. Enjoy healthy and delicious options for every meal.
         </p>
 
-        <div className="vegetable-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mx-10 flex gap-4 flex-wrap justify-center">
           {vegetables.length === 0 ? (
             <p className="text-center text-gray-500">No vegetables available</p>
           ) : (
             vegetables.map((vegetable) => (
-              <div key={vegetable.id} className="bg-white shadow-lg rounded-lg p-4 md:p-6">
+              <div key={vegetable.id} className="bg-white h-max w-72 min-w-72 shadow-lg rounded-lg p-4 md:p-6">
                 <Image
                   src={vegetable.product_image}
                   alt={vegetable.product_name}

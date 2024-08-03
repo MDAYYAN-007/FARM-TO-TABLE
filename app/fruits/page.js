@@ -94,13 +94,12 @@ const FruitList = () => {
         <p className="text-gray-700 mb-6 text-center">
           Discover a variety of fresh, organic fruits from local farmers. Enjoy healthy and delicious options for every meal.
         </p>
-
-        <div className="fruit-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mx-10 flex gap-4 flex-wrap justify-center">
           {fruits.length === 0 ? (
             <p className="text-center text-gray-500">No Fruits available</p>
           ) : (
             fruits.map((fruit) => (
-              <div key={fruit.id} className="bg-white shadow-lg rounded-lg p-4 md:p-6">
+              <div key={fruit.id} className="bg-white h-max w-72 min-w-72 shadow-lg rounded-lg p-4 md:p-6">
                 <Image
                   src={fruit.product_image}
                   alt={fruit.product_name}
@@ -109,10 +108,10 @@ const FruitList = () => {
                   className="w-full h-48 object-cover rounded-t-lg mb-4"
                 />
                 <h2 className="text-xl font-semibold mb-2">{fruit.product_name}</h2>
-                <p className="text-gray-700 mb-4">{fruit.description}</p>
-                <p className="text-lg font-bold mb-4">₹{fruit.price} per kg</p>
-                <p className="text-sm text-gray-600 mb-4">In stock: {fruit.available_units}</p>
-                <div className="flex items-center mb-4">
+                
+                <p className="text-lg font-bold mb-2">₹{fruit.price} per kg</p>
+                <p className="text-sm text-gray-600 mb-2">In stock: {fruit.available_units}</p>
+                <div className="flex items-center mb-2">
                   <button
                     type="button"
                     onClick={() => handleDecrement(fruit.id)}
@@ -148,7 +147,6 @@ const FruitList = () => {
             ))
           )}
         </div>
-
         <div className="mt-8 text-center">
           <a
             href="/cart"

@@ -75,7 +75,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="min-h-75vh mx-auto p-6">
+    <div className="min-h-75vh mx-auto max-w-fit">
       <h1 className="text-3xl font-bold text-center mb-8">Shopping Cart</h1>
 
       {orderMessage && (
@@ -83,16 +83,16 @@ const CartPage = () => {
           <p className="text-xl font-bold">{orderMessage}</p>
         </div>
       )}
-
-      <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
+      <div className="overflow-x-auto w-5/6 mx-auto">
+      <table className="table-auto w-full bg-white border border-gray-200 rounded-lg shadow-lg text-center">
         <thead>
           <tr className="bg-gray-100 text-white">
-            <th className="py-2 px-2 border-b">Image</th>
-            <th className="py-2 px-4 border-b">Product Name</th>
-            <th className="py-2 px-4 border-b">Price (₹)</th>
-            <th className="py-2 px-4 border-b">Quantity</th>
-            <th className="py-2 px-4 border-b">Total Cost (₹)</th>
-            <th className="py-2 px-4 border-b">Action</th>
+            <th className="py-2 px-2 border-b min-w-32">Image</th>
+            <th className="py-2 px-4 border-b min-w-28">Product Name</th>
+            <th className="py-2 px-4 border-b min-w-28">Price (₹)</th>
+            <th className="py-2 px-4 border-b min-w-28">Quantity</th>
+            <th className="py-2 px-4 border-b min-w-28">Total Cost (₹)</th>
+            <th className="py-2 px-4 border-b min-w-28">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -123,7 +123,7 @@ const CartPage = () => {
           )}
         </tbody>
       </table>
-
+      </div>
       {/* Total Price */}
       <div className="mt-8 text-center">
         <h2 className="text-2xl font-bold mb-2">
@@ -131,7 +131,7 @@ const CartPage = () => {
         </h2>
         <button
           onClick={handlePlaceOrder}
-          className="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
+          className="cart-btn text-white font-bold py-2 px-4 rounded"
         >
           Place Order
         </button>

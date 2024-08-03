@@ -32,7 +32,7 @@ const CropSafety = () => {
         const minTemp = day.day.mintemp_c;
         const rainChance = day.day.daily_chance_of_rain;
 
-        return maxTemp < 35 && minTemp > 10 && rainChance < 80;
+        return maxTemp < 35 && minTemp > 10 && rainChance < 50;
       });
       setSafetyStatus(safetyStatus);
       setCropSafety(safetyStatus ? "Crops are safe" : "Crops are at risk!!");
@@ -44,14 +44,14 @@ const CropSafety = () => {
   return (
     <>
       <div
-        className="w-full min-h-75vh flex gap-10 justify-center items-center "
+        className="w-full min-h-75vh flex gap-10 justify-center items-center max-lg:flex-col"
         style={{
           backgroundImage: "url('/images/weather_bg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="h-72 w-72 bg-gray-100 bg-opacity-30 border-2 border-gray-300 p-4 rounded-lg shadow-md backdrop-filter backdrop-blur-sm">
+        <div className="h-72 w-72 min-w-72 bg-gray-100 bg-opacity-30 border-2 border-gray-300 p-4 rounded-lg shadow-md backdrop-filter backdrop-blur-sm max-lg:mt-6">
           <h2 className="text-lg text-center font-semibold mb-4">
             Weather Forecast
           </h2>
@@ -79,7 +79,7 @@ const CropSafety = () => {
         </div>
 
         {weatherData && (
-          <div className="h-72 w-72 p-4 bg-gray-100 bg-opacity-30 border-2 border-gray-300 rounded-lg shadow-md text-center flex justify-center flex-col items-center backdrop-filter backdrop-blur-sm">
+          <div className="h-72 w-72 min-w-72 p-4 bg-gray-100 bg-opacity-30 border-2 border-gray-300 rounded-lg shadow-md text-center flex justify-center flex-col items-center backdrop-filter backdrop-blur-sm">
             <div>
               <Image
                 src={`https:${weatherData.current.condition.icon}`}
@@ -108,7 +108,7 @@ const CropSafety = () => {
         )}
 
         {cropSafety && (
-          <div className=" h-72 w-72 p-4 bg-gray-100 bg-opacity-30 border-2 border-gray-300 rounded-lg shadow-md overflow-y-auto text-center backdrop-filter backdrop-blur-lg">
+          <div className=" h-72 w-72 min-w-72 p-4 bg-gray-100 bg-opacity-30 border-2 border-gray-300 rounded-lg shadow-md overflow-y-auto text-center backdrop-filter backdrop-blur-lg max-lg:mb-6">
             <p
               className={`text-2xl font-semibold mb-2 ${
                 safetyStatus ? "text-green-500" : "text-red-800"

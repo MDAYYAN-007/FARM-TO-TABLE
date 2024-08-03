@@ -93,13 +93,12 @@ const GrainList = () => {
         <p className="text-gray-700 mb-6 text-center">
           Discover a variety of fresh, organic grains from local farmers. Enjoy healthy and delicious options for every meal.
         </p>
-
-        <div className="grain-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mx-10 flex gap-4 flex-wrap justify-center">
           {grains.length === 0 ? (
             <p className="text-center text-gray-500">No grains available</p>
           ) : (
             grains.map((grain) => (
-              <div key={grain.id} className="bg-white shadow-lg rounded-lg p-4 md:p-6">
+              <div key={grain.id} className="bg-white h-max w-72 min-w-72 shadow-lg rounded-lg p-4 md:p-6">
                 <Image
                   src={grain.product_image}
                   alt={grain.product_name}

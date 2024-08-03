@@ -10,7 +10,7 @@ const Buy = () => {
         </h1>
         <div className="flex flex-col space-y-6 justify-center items-center">
           {/* <!-- Fruits Section --> */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden w-1/2 min-w-96">
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden w-1/2 max-xsm:min-w-72">
             <div className="relative w-full h-48 ">
               <Image
                 src="/images/fruits.jpg"
@@ -36,7 +36,7 @@ const Buy = () => {
             </div>
           </div>
           {/* <!-- Vegetables Section --> */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden w-1/2">
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden w-1/2 max-xsm:min-w-72">
             <div className="relative w-full h-48">
               <Image
                 src="/images/vegetables.jpg"
@@ -62,7 +62,7 @@ const Buy = () => {
             </div>
           </div>
           {/* <!-- Grains Section --> */}
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden w-1/2">
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden w-1/2 max-xsm:min-w-72">
             <div className="relative w-full h-48">
               <Image
                 src="/images/grains.png"
