@@ -31,8 +31,8 @@ export default function RootLayout({ children }) {
             <main className="flex-grow mt-24 max-md:mt-36 max-xsm:mt-[170px]">{children}</main>
             <Footer />
           </div>
-        </body>
         <SpeedInsights />
+        </body>
       </SessionWrapper>
     </html>
   );
