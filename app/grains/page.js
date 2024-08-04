@@ -59,7 +59,7 @@ const GrainList = () => {
         await addToCart(grain,quantity,session.user.email);
         setQuantities((prevQuantities) => ({
           ...prevQuantities,
-          [fruit.id]: 0,
+          [grain.id]: 0,
         }));
       } catch (error) {
         console.error("Error adding to cart:", error);
