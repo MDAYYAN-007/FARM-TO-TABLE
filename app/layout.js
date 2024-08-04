@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </body>
-        </SpeedInsights>
+        <SpeedInsights />
       </SessionWrapper>
     </html>
   );
