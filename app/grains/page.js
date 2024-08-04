@@ -4,6 +4,7 @@ import getGrainsData from "@/actions/getGrainsData";
 import { useSession } from "next-auth/react";
 import Loader from "@/components/Loader";
 import Image from "next/image";
+import addToCart from "@/actions/addToCart";
 
 const GrainList = () => {
   const { data: session, status } = useSession();
