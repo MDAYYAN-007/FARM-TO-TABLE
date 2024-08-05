@@ -21,7 +21,7 @@ export default function Home() {
               consumers directly with farmers, ensuring fair prices and
               high-quality produce. Join us in making a difference in your
               community! */}
-              Our demo project simplifies the process of ordering products directly from local farmers. Users can browse available items, add them to their cart, and place orders. The platform ensures that users only see products in stock, and they can manage their orders efficiently. With seamless Google authentication, users can quickly sign in and access their order history. The project focuses on providing a user-friendly interface and supports local agriculture by connecting consumers directly with producers.
+              Our demo project only simplifies the process of ordering products directly from local farmers. Users can browse available items, add them to their cart, and place orders. The platform ensures that users only see products in stock, and they can manage their orders efficiently. With seamless Google authentication, users can quickly sign in and access their order history. The project focuses on providing a user-friendly interface and supports local agriculture by connecting consumers directly with producers.
             </p>
           </div>
         </div>
