@@ -18,7 +18,8 @@ const getProductsData = async (email) => {
       ON 
         products.user_id = profile.user_id
       WHERE
-        profile.user_email = ${email};
+        profile.user_email = ${email}
+      ORDER BY products.available_units DESC;
     `;
 
     if (response && response.rows && response.rows.length > 0) {

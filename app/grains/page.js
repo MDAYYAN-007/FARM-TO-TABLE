@@ -18,7 +18,7 @@ const GrainList = () => {
       const fetchGrains = async () => {
         const grainData = await getGrainsData(session.user.email);
         setGrains(grainData);
-        if(grains !== null){
+        if(grainData !== null){
           setQuantities(grainData.reduce((acc, grain) => ({ ...acc, [grain.id]: 0 }), {}));
         }
         setLoading(false);

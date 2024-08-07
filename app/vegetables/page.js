@@ -18,7 +18,7 @@ const VegetableList = () => {
       const fetchVegetables = async () => {
         const vegetableData = await getVegetablesData(session.user.email);
         setVegetables(vegetableData);
-        if(vegetables!==null){
+        if(vegetableData!==null){
           setQuantities(vegetableData.reduce((acc, vegetable) => ({ ...acc, [vegetable.id]: 0 }), {}));
         }
         setLoading(false);

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import getFruitsData from "@/actions/getFruitsData";
 import { useSession, signIn } from "next-auth/react";
+import getFruitsData from "@/actions/getFruitsData";
 import Loader from "@/components/Loader";
 import Image from "next/image";
 import addToCart from "@/actions/addToCart";
@@ -12,12 +12,13 @@ const FruitList = () => {
   const [quantities, setQuantities] = useState({});
   const [loading, setLoading] = useState(true);
   
+
   useEffect(() => {
     if (session) {
       const fetchFruits = async () => {
         const fruitData = await getFruitsData(session.user.email);
         setFruits(fruitData);
-        if(fruits!==null){
+        if(fruitData!==null){
           setQuantities(fruitData.reduce((acc, fruit) => ({ ...acc, [fruit.id]: 0 }), {}));
         }
         setLoading(false);
@@ -43,7 +44,7 @@ const FruitList = () => {
       return prevQuantities;
     });
   };
-
+  
   const handleDecrement = (id) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,

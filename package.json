@@ -17,12 +17,14 @@
     "@vercel/speed-insights": "^1.0.12",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
+    "framer-motion": "^11.3.21",
     "next": "14.2.5",
     "next-auth": "^4.24.7",
     "pg": "^8.12.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.52.1"
+    "react-hook-form": "^7.52.1",
+    "react-intersection-observer": "^9.13.0"
   },
   "devDependencies": {
     "eslint": "^8",

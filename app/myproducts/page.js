@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useSession, signIn } from "next-auth/react";
 import getProductsData from "@/actions/getProductData";
 import Loader from "@/components/Loader";
-import deleteProduct from "@/actions/deleteProduct"; 
+import deleteProduct from "@/actions/deleteProduct";
 
 const ProductsPage = () => {
   const { data: session, status } = useSession();
@@ -72,32 +72,33 @@ const ProductsPage = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
-                <tr key={product.id} className="hover:bg-gray-50">
-                  <td className="py-2 px-4 border-b">
-                    <div className="relative w-16 h-16">
-                      <Image
-                        src={product.product_image}
-                        alt={product.product_name}
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-lg"
-                      />
-                    </div>
-                  </td>
-                  <td className="py-2 px-4 border-b">{product.product_name}</td>
-                  <td className="py-2 px-4 border-b">{product.price}</td>
-                  <td className="py-2 px-4 border-b">{product.available_units}</td>
-                  <td className="py-2 px-4 border-b">
-                    <button
-                      className="text-red-600 hover:text-red-900"
-                      onClick={() => handleDelete(product.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {products.map((product) =>
+                product.available_units !== 0 && (
+                  <tr key={product.id} className="hover:bg-gray-50">
+                    <td className="py-2 px-4 border-b">
+                      <div className="relative w-16 h-16">
+                        <Image
+                          src={product.product_image}
+                          alt={product.product_name}
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded-lg"
+                        />
+                      </div>
+                    </td>
+                    <td className="py-2 px-4 border-b">{product.product_name}</td>
+                    <td className="py-2 px-4 border-b">{product.price}</td>
+                    <td className="py-2 px-4 border-b">{product.available_units}</td>
+                    <td className="py-2 px-4 border-b">
+                      <button
+                        className="text-red-600 hover:text-red-900"
+                        onClick={() => handleDelete(product.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
