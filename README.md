@@ -6,6 +6,9 @@ FARM TO TABLE is a web platform that connects local farmers directly with consum
 
 This application can be accessed at [https://farm-to-table-two.vercel.app/](https://farm-to-table-two.vercel.app/). **Note:** This link may not work if the project is taken down for any reason.
 
+## Contributions and Team Effort
+
+FARM TO TABLE was built in collaboration with [PrajnaEP](https://github.com/PrajnaEP), who made significant contributions to the frontend development. Her expertise and teamwork were instrumental in designing the user-interface and optimizing the overall performance of the platform. Together, we focused on delivering a seamless user experience and building a product that genuinely supports local farmers and sustainable practices.
 
 ## Features
 
